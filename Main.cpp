@@ -96,7 +96,7 @@ int main()
 	//area of open gl we want to render in
 	glViewport(0, 0, width, height);
 
-	Shader shaderProgram("Default.vert","Default.frag");
+	Shader shaderProgram("Shaders/Default.vert","Shaders/Default.frag");
 
 	VAO VAO1;
 	VAO1.Bind();
@@ -118,7 +118,7 @@ int main()
 	VBO1.Unbind();
 	EBO1.Unbind();
 
-	Shader lightShader("light.vert", "light.frag");
+	Shader lightShader("Shaders/light.vert", "Shaders/light.frag");
 
 	VAO lightVAO;
 	lightVAO.Bind();

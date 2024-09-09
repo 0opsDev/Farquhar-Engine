@@ -77,20 +77,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Default.vert">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="Default.frag">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="light.frag">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-    <None Include="light.vert">
-      <Filter>Resource Files\Shaders</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="shaderClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -153,5 +139,19 @@
     <Image Include="Assets\Textures\Model\square_tiles.jpg">
       <Filter>Resource Files\Textures</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\Default.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Shaders\light.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Shaders\light.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Shaders\Default.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

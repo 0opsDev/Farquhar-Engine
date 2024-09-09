@@ -157,12 +157,6 @@
     <ClCompile Include="VBO.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Default.frag" />
-    <None Include="Default.vert" />
-    <None Include="light.frag" />
-    <None Include="light.vert" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="EBO.h" />
     <ClInclude Include="imgui\imconfig.h" />
@@ -185,6 +179,12 @@
     <Image Include="Assets\Textures\Model\square_tiles.jpg" />
     <Image Include="Assets\Textures\Model\square_tiles_spec.jpg" />
     <Image Include="Assets\Textures\Model\test.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\Default.frag" />
+    <None Include="Shaders\Default.vert" />
+    <None Include="Shaders\light.frag" />
+    <None Include="Shaders\light.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
