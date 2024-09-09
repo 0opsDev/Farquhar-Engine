@@ -186,6 +186,9 @@
     <None Include="Shaders\light.frag" />
     <None Include="Shaders\light.vert" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\Textures\Model\notes.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
