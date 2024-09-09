@@ -10,12 +10,12 @@
 #include<glm/gtc/matrix_transform.hpp>
 #include<glm/gtc/type_ptr.hpp>
 
-#include"Texture.h"
-#include"shaderClass.h"
-#include"EBO.h"
-#include"VAO.h"
-#include"VBO.h"
-#include"Camera.h"
+#include"src/video/Texture.h"
+#include"src/video/shaderClass.h"
+#include"src/video/EBO.h"
+#include"src/video/VAO.h"
+#include"src/video/VBO.h"
+#include"src/Camera.h"
 
 
 const unsigned int width = 2560;
