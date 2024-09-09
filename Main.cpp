@@ -160,9 +160,9 @@ int main()
 	glUniform3f(glGetUniformLocation(shaderProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
 	//texture
 
-	Texture tileTex("square_tiles.jpg", GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE);
+	Texture tileTex("assets/Textures/Model/square_tiles.jpg", GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE);
 	tileTex.texUnit(shaderProgram, "tex0", 0);
-	Texture tileTexspec("square_tiles_spec.jpg", GL_TEXTURE_2D, 1, GL_RGBA, GL_UNSIGNED_BYTE);
+	Texture tileTexspec("assets/Textures/Model/square_tiles_spec.jpg", GL_TEXTURE_2D, 1, GL_RGBA, GL_UNSIGNED_BYTE);
 	tileTexspec.texUnit(shaderProgram, "tex1", 1);
 
 

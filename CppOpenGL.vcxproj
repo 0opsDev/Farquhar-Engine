@@ -182,8 +182,9 @@
   <ItemGroup>
     <Image Include="Assets\Icons\Icon.png" />
     <Image Include="Assets\Icons\IconF.png" />
-    <Image Include="square_tiles.jpg" />
-    <Image Include="square_tiles_spec.jpg" />
+    <Image Include="Assets\Textures\Model\square_tiles.jpg" />
+    <Image Include="Assets\Textures\Model\square_tiles_spec.jpg" />
+    <Image Include="Assets\Textures\Model\test.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

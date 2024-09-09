@@ -138,16 +138,19 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="square_tiles.jpg">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
-    <Image Include="square_tiles_spec.jpg">
-      <Filter>Resource Files\Textures</Filter>
-    </Image>
     <Image Include="Assets\Icons\IconF.png">
       <Filter>Resource Files\Textures</Filter>
     </Image>
     <Image Include="Assets\Icons\Icon.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="Assets\Textures\Model\square_tiles_spec.jpg">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="Assets\Textures\Model\test.jpg">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="Assets\Textures\Model\square_tiles.jpg">
       <Filter>Resource Files\Textures</Filter>
     </Image>
   </ItemGroup>
