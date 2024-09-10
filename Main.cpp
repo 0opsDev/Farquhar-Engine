@@ -65,10 +65,6 @@ GLuint lightIndices[] =
 
 int main() 
 {
-	//fileread > file names
-	//https://www.youtube.com/watch?v=rQhBECyA6ew - need to watch this for global vars
-	//settings/glb vars
-
 	//start glfw
 	glfwInit(); 
 
