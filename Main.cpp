@@ -21,6 +21,7 @@
 const unsigned int width = 2560;
 const unsigned int height = 1440;
 //https://discord.gg/fd6REHgBus
+//prism
 GLfloat vertices[] =
 { //     COORDINATES     /        COLORS          /    TexCoord   /        NORMALS       //
 	-1.0f, 0.0f,  1.0f,		0.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f, 1.0f, 0.0f,
