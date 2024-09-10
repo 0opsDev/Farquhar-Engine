@@ -4,6 +4,11 @@ Farquhar engine 2024
 youtube playlist
 https://www.youtube.com/playlist?list=PLKMYyotlzXkiegGQOI8jSTfOTWRfDSpW_
 
+github projects:
+https://github.com/users/0opsDev/projects/6/views/1
+https://github.com/users/0opsDev/projects/4/views/1
+https://github.com/users/0opsDev/projects/5/views/1
+
 some screenshots to show off lighting
 ![image](h![Screenshot 2024-09-09 205340](https://github.com/user-attachments/assets/f96fe1b3-0210-4de2-ae89-69b6e3592f1e)
 ![Screenshot 2024-09-09 201926](https://github.com/user-attachments/assets/109f060d-f1d8-48ed-9537-a57226c64427)
