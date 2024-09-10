@@ -25,6 +25,9 @@
     <Filter Include="Header Files\imgui">
       <UniqueIdentifier>{36fd3c58-e113-499c-ab17-d424b8a67eaf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Text">
+      <UniqueIdentifier>{1127e8f9-a6ef-4e08-aa57-9d56c9ea50d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -75,6 +78,9 @@
     <ClCompile Include="src\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="fileClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imgui\imconfig.h">
@@ -122,6 +128,9 @@
     <ClInclude Include="src\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="fileClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Icons\IconF.png">
@@ -157,6 +166,15 @@
   <ItemGroup>
     <Text Include="Assets\Textures\Model\notes.txt">
       <Filter>Resource Files\Textures</Filter>
+    </Text>
+    <Text Include="Settings\DoDefaultAnimation.txt">
+      <Filter>Resource Files\Text</Filter>
+    </Text>
+    <Text Include="Settings\testFile.txt">
+      <Filter>Resource Files\Text</Filter>
+    </Text>
+    <Text Include="Storage\ObjectLocation.txt">
+      <Filter>Resource Files\Text</Filter>
     </Text>
   </ItemGroup>
 </Project>

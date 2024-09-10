@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="fileClass.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imgui_demo.cpp" />
@@ -157,6 +158,7 @@
     <ClCompile Include="src\video\VBO.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="fileClass.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
     <ClInclude Include="imgui\imgui_impl_glfw.h" />
@@ -188,6 +190,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Textures\Model\notes.txt" />
+    <Text Include="Settings\DoDefaultAnimation.txt" />
+    <Text Include="Settings\testFile.txt" />
+    <Text Include="Storage\ObjectLocation.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

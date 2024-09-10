@@ -3,6 +3,7 @@
 #include"imgui_impl_opengl3.h"
 
 #include<iostream>
+#include<fstream>
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
 #include<stb/stb_image.h>
@@ -12,11 +13,11 @@
 
 #include"src/video/Texture.h"
 #include"src/video/shaderClass.h"
+#include"fileClass.h"
 #include"src/video/EBO.h"
 #include"src/video/VAO.h"
 #include"src/video/VBO.h"
 #include"src/Camera.h"
-
 
 const unsigned int width = 2560;
 const unsigned int height = 1440;
@@ -64,6 +65,9 @@ GLuint lightIndices[] =
 
 int main() 
 {
+	//fileread > file names
+	//https://www.youtube.com/watch?v=rQhBECyA6ew - need to watch this for global vars
+	//settings/glb vars
 
 	//start glfw
 	glfwInit(); 
@@ -132,32 +136,32 @@ int main()
 	lightVBO.Unbind();
 	lightEBO.Unbind();
 
-	glm::vec4 lightColor = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
-	glm::vec3 InnerLight = glm::vec3(0.90f, 0.95f, 0.0f);
-	glm::vec3 spotLightRot = glm::vec3(0.0f, -1.0f, 0.0f);
-	glm::vec4 skylightSpread = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	//glm::vec4 lightColor = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
+	//glm::vec3 InnerLight = glm::vec3(0.90f, 0.95f, 0.0f);
+	//glm::vec3 spotLightRot = glm::vec3(0.0f, -1.0f, 0.0f);
+	//glm::vec4 skylightSpread = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
 	//model transform
-	glm::vec3 lightPos = glm::vec3(0.5f, 0.5f, 0.5f);
-	glm::mat4 lightModel = glm::mat4(1.0f);
-	lightModel = glm::translate(lightModel, lightPos);
+	//glm::vec3 lightPos = glm::vec3(0.5f, 0.5f, 0.5f);
+	//glm::mat4 lightModel = glm::mat4(1.0f);
+	//lightModel = glm::translate(lightModel, lightPos);
 
-	glm::vec3 pyramidPos = glm::vec3(0.0f, 0.0f, 0.0f);
-	glm::mat4 pyramidModel = glm::mat4(1.0f);
-	pyramidModel = glm::translate(pyramidModel, pyramidPos);
+	//glm::vec3 pyramidPos = glm::vec3(0.0f, 0.0f, 0.0f);
+	//glm::mat4 pyramidModel = glm::mat4(1.0f);
+	//pyramidModel = glm::translate(pyramidModel, pyramidPos);
 
-	glUniform3f(glGetUniformLocation(shaderProgram.ID, "InnerLight1"), InnerLight.x, InnerLight.y, InnerLight.z);
-	glUniform3f(glGetUniformLocation(shaderProgram.ID, "spotLightRot"), InnerLight.x, InnerLight.y, InnerLight.z);
-	glUniform4f(glGetUniformLocation(shaderProgram.ID, "skylightSpread"), skylightSpread.x, skylightSpread.y, skylightSpread.z, skylightSpread.w);
+	//glUniform3f(glGetUniformLocation(shaderProgram.ID, "InnerLight1"), InnerLight.x, InnerLight.y, InnerLight.z);
+	//glUniform3f(glGetUniformLocation(shaderProgram.ID, "spotLightRot"), InnerLight.x, InnerLight.y, InnerLight.z);
+	//glUniform4f(glGetUniformLocation(shaderProgram.ID, "skylightSpread"), skylightSpread.x, skylightSpread.y, skylightSpread.z, skylightSpread.w);
 
-	lightShader.Activate();
-	glUniformMatrix4fv(glGetUniformLocation(lightShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(lightModel));
-	glUniform4f(glGetUniformLocation(lightShader.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
+	//lightShader.Activate();
+	//glUniformMatrix4fv(glGetUniformLocation(lightShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(lightModel));
+	//glUniform4f(glGetUniformLocation(lightShader.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
 
-	shaderProgram.Activate();
-	glUniformMatrix4fv(glGetUniformLocation(shaderProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(pyramidModel));
-	glUniform4f(glGetUniformLocation(shaderProgram.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
-	glUniform3f(glGetUniformLocation(shaderProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
+	//shaderProgram.Activate();
+	//glUniformMatrix4fv(glGetUniformLocation(shaderProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(pyramidModel));
+	//glUniform4f(glGetUniformLocation(shaderProgram.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
+	//glUniform3f(glGetUniformLocation(shaderProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
 	//texture
 
 	Texture tileTex("assets/Textures/Model/wood_floor_deck_diff_4k.jpg", GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE);
@@ -175,11 +179,12 @@ int main()
 	ImGui_ImplOpenGL3_Init("#version 330");
 
 	//imgui vars
+	bool save = false;
+	bool DoDefaultAnimation = false;
 	float rotation = 0.0f;
 	double prevTime = glfwGetTime();
 	bool doVsync = true;
 	bool drawTriangles = true;
-	bool DoDefaultAnimation = false;
 	bool ResetTrans = false;
 	GLfloat ConeSI[3] = { 0.05f, 0.95f , 1.0f };
 	GLfloat ConeRot[3] = { 0.0f, -1.0f , 0.0f };
@@ -188,6 +193,25 @@ int main()
 	GLfloat skyRGBA[4] = { 0.778f, 0.853f, 0.956f, 1.0f };
 	GLfloat LightTransform1[3] = { 0.0f, 1.0f, 0.0f };
 	GLfloat ObTransform1[3] = { 0.0f, 0.0f, 0.0f };
+	//
+	std::fstream TestFile2;
+	TestFile2.open("Settings/DoDefaultAnimation.txt", std::ios::in);//read
+	if (TestFile2.is_open()) {
+		//writes in lines
+		std::string lineT;
+		while (getline(TestFile2, lineT))
+		{
+			if (lineT == "true") {
+				DoDefaultAnimation = true;
+				std::cout << DoDefaultAnimation << std::endl;
+			}
+			else {
+				DoDefaultAnimation = false;
+				std::cout << DoDefaultAnimation << std::endl;
+			}
+		}
+		TestFile2.close();
+	}
 
 	glEnable(GL_DEPTH_TEST);
 
@@ -210,10 +234,27 @@ int main()
 
 	//change to icon (what window, how many images, what image)
 	glfwSetWindowIcon(window, 1, Iconinages);
+	glfwCreateCursor(Iconinages, iconW, iconH);
 
 	//makes sure window stays open
 	while (!glfwWindowShouldClose(window))  
 	{
+		if (save) {
+			std::fstream TestFile;
+			TestFile.open("Settings/DoDefaultAnimation.txt", std::ios::out);//write
+			if (TestFile.is_open()) {
+				if (DoDefaultAnimation) {
+					TestFile << "true\n";
+					std::cout << "true\n";
+				}
+				else {
+					TestFile << "false\n";
+					std::cout << "false\n";
+				}
+			}
+
+			save = false;
+		}
 		switch (doVsync) {
 		case true:
 			glfwSwapInterval(1);
@@ -340,6 +381,7 @@ int main()
 		ImGui::Begin("Settings Window");
 		// Text that appears in the window
 		ImGui::Text("Settings (Press escape to use mouse)");
+		ImGui::Checkbox("save changes?", &save);
 		// Checkbox that appears in the window
 		ImGui::Text("Rendering");
 		ImGui::Checkbox("Vsync (GAMETIME IS SYNCED ON THIS SHIT)", &doVsync);
